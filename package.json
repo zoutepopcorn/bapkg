@@ -2,11 +2,18 @@
   "name": "es6",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "bin": "./distr/index.js",
+  "pkg": {
+    "assets": [
+      "./distr/html/**/*"
+    ]
+  },
   "scripts": {
     "build": "babel src -d distr --presets es2015",
-    "pkg": "pkg ./distr/index.js --out-path execute",
-    "all": "npm run build && npm run pkg"
+    "pkg": "pkg . --out-path execute",
+    "all": "npm run build && npm run pkg",
+    "linux": "npm run all && cd ./execute && ./es6-linux",
+    "start": "babel-node src/index.js"
   },
   "author": "",
   "license": "ISC",

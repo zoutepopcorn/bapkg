@@ -10,6 +10,8 @@ make sure nodejs, npm and pkg is installed. Use ```npm i pkg -g```
 | .package.json     (config)
 |--- src            (your ES6 nodejs project files)
 |--- distr          (all transpiled files)
+|    |
+|    |---  html     (static html for program)
 |--- execute        (all executables by pkg)
 ```
 
@@ -18,8 +20,10 @@ make sure nodejs, npm and pkg is installed. Use ```npm i pkg -g```
  ```json
     {
         "build": "babel src -d distr --presets es2015",
-        "pkg": "pkg ./distr/index.js --out-path execute",
-        "all": "npm run build && npm run pkg"
+        "pkg": "pkg . --out-path execute",
+        "all": "npm run build && npm run pkg",
+        "linux": "npm run all && cd ./execute && ./es6-linux",
+        "start": "babel-node src/index.js"
     }
  ```
 
@@ -27,3 +31,4 @@ make sure nodejs, npm and pkg is installed. Use ```npm i pkg -g```
 Run: ```npm run all```
 
 This will pkg all executables in the folder ```execute```
+
