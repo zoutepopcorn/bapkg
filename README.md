@@ -4,7 +4,7 @@ A simple to run your es6 with https://github.com/zeit/pkg
 ## 👨🏼‍🔧  Install
 make sure nodejs, npm and pkg is installed. Use ```npm i pkg -g```
 
-## Files
+## 👀 Files
 ```
 | .babelrc          (config)
 | .package.json     (config)
