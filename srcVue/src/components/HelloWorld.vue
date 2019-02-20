@@ -104,7 +104,6 @@
             vm.homePath = await homePath();
             vm.globDir = await globDir(vm.homePath);
         }
-
     }
 </script>
 

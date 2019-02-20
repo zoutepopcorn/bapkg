@@ -11,8 +11,15 @@ var fs = require('fs');
 var carlo = require('carlo');
 var path = require('path');
 var os = require('os');
+// const glob = require("glob-promise")
+var globby = require('globby');
 
 console.log('(V) this is some ES6 JavaScript code /src');
+
+/* TODO
+class Expose() {
+}
+*/
 
 var run = async function run() {
     console.log('run?');
@@ -41,12 +48,43 @@ var run = async function run() {
         return window.load('index.html');
     });
     app.serveFolder('html');
+
+    // TODO: iterate class for all functions?
     await app.exposeFunction('print', print);
-    await app.load('./index.html');
+    await app.exposeFunction('homePath', homePath);
+    await app.exposeFunction('curPath', curPath);
+    await app.exposeFunction('globDir', globDir);
+
+    // await app.load('./index.html'); // dist
+    await app.load('http://localhost:8080');
     return app;
 };
 
 var print = async function print() {
+    var message = { text: 'in a bottle' };
+    return message;
+};
+
+var homePath = async function homePath() {
+    return os.homedir();
+};
+
+var curPath = async function curPath() {
+    return os.homedir();
+};
+
+var globDir = async function globDir(dir) {
+    console.log(dir);
+    // const content = await glob(`${dir}/*`, { cache: 'DIR'} );
+    var paths = await globby([dir + '/*'], { onlyDirectories: true }); //onlyDirectories, onlyFiles
+
+    console.log(paths);
+    return paths;
+};
+
+//onlyFiles
+
+var homeFolder = async function homeFolder() {
     var message = { text: 'in a bottle' };
     return message;
 };

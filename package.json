@@ -2,29 +2,38 @@
   "name": "es6",
   "version": "1.0.0",
   "description": "",
+  "author": "",
+  "scripts": {
+    "build": "babel srcNode -d nodeDist --presets es2015",
+    "all": "npm run build && npm run pkg",
+    "linux": "npm run all && cd ./execute && ./es6-linux",
+    "pkg": "pkg . --out-path execute",
+    "start": "babel-node srcNode/index.js"
+  },
+  "dependencies": {
+    "@mdi/font": "^2.6.95",
+    "carlo": "^0.9.43",
+    "glob-promise": "^3.4.0",
+    "globby": "^9.0.0",
+    "roboto-fontface": "*",
+    "vuetify": "^1.3.0"
+  },
+  "devDependencies": {
+    "@mdi/font": "^3.4.93",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "vue-cli-plugin-vuetify": "^0.4.6",
+    "vuetify-loader": "^1.0.5"
+  },
   "bin": "./distr/index.js",
+  "license": "ISC",
   "pkg": {
     "assets": [
       "./distr/html/**/*"
     ]
-  },
-  "scripts": {
-    "build": "babel src -d nodeDist --presets es2015",
-    "serve": "babel src -d nodeDist --presets es2015 && cd distr && node index.js",
-    "pkg": "pkg . --out-path execute",
-    "all": "npm run build && npm run pkg",
-    "linux": "npm run all && cd ./execute && ./es6-linux",
-    "start": "babel-node src/index.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1"
-  },
-  "dependencies": {
-    "carlo": "^0.9.43",
-    "glob-promise": "^3.4.0",
-    "globby": "^9.0.0"
   }
 }

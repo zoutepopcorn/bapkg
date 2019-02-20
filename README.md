@@ -19,11 +19,11 @@ make sure nodejs, npm and pkg is installed. Use ```npm i pkg -g```
 ## 👨🏼‍💻 package.json > scripts
  ```json
     {
-        "build": "babel src -d distr --presets es2015",
+        "build": srcNode,
         "pkg": "pkg . --out-path execute",
         "all": "npm run build && npm run pkg",
         "linux": "npm run all && cd ./execute && ./es6-linux",
-        "start": "babel-node src/index.js"
+        "start": srcNode
     }
  ```
 

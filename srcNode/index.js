@@ -12,7 +12,6 @@ console.log(`(V) this is some ES6 JavaScript code /src`);
 
 /* TODO
 class Expose() {
-
 }
 */
 
