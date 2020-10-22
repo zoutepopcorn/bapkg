@@ -9,16 +9,21 @@
     ]
   },
   "scripts": {
-    "build": "babel src -d distr --presets es2015",
+    "build": "babel src -d distr --presets es2015 --copy-files",
     "pkg": "pkg . --out-path execute",
     "all": "npm run build && npm run pkg",
     "linux": "npm run all && cd ./execute && ./es6-linux",
-    "start": "babel-node src/index.js"
+    "start": "cd src && babel-node index.js",
+    "dist": "node distr/index.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1"
+  },
+  "dependencies": {
+    "koa": "^2.13.0",
+    "koa-static": "^5.0.0"
   }
 }

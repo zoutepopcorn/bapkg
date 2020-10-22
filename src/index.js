@@ -1,8 +1,6 @@
-import Class from './Class'
-const c = new Class()
-const fs = require('fs');
-
-console.log(`(V) this is some ES6 JavaScript code /src`);
+import fs from 'fs';
+import {startServer} from './server'
+const PATH = `${__dirname}/html`;
 
 // show assets
 fs.readdir(__dirname, (err, items) => {
@@ -14,3 +12,4 @@ fs.readdir(__dirname, (err, items) => {
     });
 });
 
+startServer(PATH, 3333);
