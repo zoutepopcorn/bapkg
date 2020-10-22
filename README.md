@@ -2,7 +2,9 @@
 A simple to run your es6 with https://github.com/zeit/pkg
 
 ## 😱 Install
-make sure nodejs, npm and pkg is installed. Use ```npm i pkg -g```
+make sure nodejs, npm and pkg is installed. 
+Use 
+```npm i pkg -g``` and then ```npm i```
 
 ## 👀 Files
 ```
@@ -17,7 +19,7 @@ make sure nodejs, npm and pkg is installed. Use ```npm i pkg -g```
 ```
 
 
-## 👨🏼‍💻 package.json > scripts
+## 😻 package.json > scripts
  ```json
     "build": "babel src -d distr --presets es2015 --copy-files",
     "pkg": "pkg . --out-path execute",
